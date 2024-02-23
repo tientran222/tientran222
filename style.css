@@ -11,7 +11,7 @@ body {
   font-family: "Poppins", sans-serif;
   justify-content: center;
   background-size: auto 100%; 
-  background: url('https://cdn.discordapp.com/attachments/1094638149851943025/1208215378564481105/Screenshot_from_2024-02-17_07-52-10.png?ex=65e27941&is=65d00441&hm=36158e92250a0c3a5a9288db6414a4aeed914a4be552f40fb2cc56fb69ef39ca&') center center no-repeat;
+  background-color: pink;
   background-size: cover;
   background-position: center;
 }
@@ -21,7 +21,7 @@ html {
 }
 
 p {
-  color: rgb(85, 85, 85);
+  color: rgb(255, 255, 255);
 }
 
 /* TRANSITION */
@@ -180,7 +180,7 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
-  clip-path: circle();
+  clip-path: rect();
 }
 
 .section__text {
@@ -247,7 +247,7 @@ section {
 
 .btn-color-1,
 .btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
+  border: rgb(255, 255, 255) 0.1rem solid;
 }
 
 .btn-color-1:hover,
@@ -257,7 +257,7 @@ section {
 
 .btn-color-1,
 .btn-color-2:hover {
-  background: rgb(53, 53, 53);
+  background: rgb(0, 0, 0);
   color: white;
 }
 
