@@ -2,6 +2,26 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+@keyframes glowing-reverse {
+  0% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +30,8 @@
 body {
   font-family: "Poppins", sans-serif;
   justify-content: center;
-  background-size: auto 100%; 
-  background-color: pink;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/bg.png');
   background-size: cover;
   background-position: center;
 }
@@ -50,26 +70,143 @@ nav {
   font-size: 1.5rem;
 }
 
-a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  text-decoration-color: white;
-}
-
-a:hover {
-  color: grey;
-  text-decoration: underline;
-  text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
-}
-
 .logo {
-  font-size: 2rem;
-  color: #ffffff;
+  width: 240px;
+  font-size: 20px;
+  height: 60px;
+  border: none;
+  outline: none;
+  background: black;
+  cursor: pointer;
+  position: relative;
+  border-radius: 10px;
 }
 
-.logo:hover {
-  cursor: default;
+.words {
+  color: white;
+  font-size: 1.4rem;
+  background-image: none;
+  font-weight: bold;
+}
+.logo:hover .words {
+  background: linear-gradient(124deg,
+      #dd00f3 1%,
+      #ff2400,
+      #e81d1d,
+      #e8b71d,
+      #e3e81d,
+      #1de840,
+      #1ddde8,
+      #2b1de8,
+      #dd00f3,
+      #dd00f3,
+
+      #ff2400,
+      #e81d1d,
+      #e8b71d,
+      #e3e81d,
+      #1de840,
+      #1ddde8,
+      #2b1de8,
+      #dd00f3,
+      #dd00f3);
+
+  -webkit-background-clip: text;
+  background-clip: border-box;
+  -webkit-text-stroke: 2px transparent;
+  color: #000;
+
+  animation: glowing 20s linear infinite;
+  background-size: 200%;
+
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.logo:hover .words {
+  opacity: 1;
+}
+
+.logo:before {
+  content: "";
+  background: linear-gradient(90deg,
+      #ff2400,
+      #e81d1d,
+      #e8b71d,
+      #e3e81d,
+      #1de840,
+      #1ddde8,
+      #2b1de8,
+      #dd00f3,
+      #dd00f3,
+
+      #ff2400,
+      #e81d1d,
+      #e8b71d,
+      #e3e81d,
+      #1de840,
+      #1ddde8,
+      #2b1de8,
+      #dd00f3,
+      #dd00f3);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 200%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(50% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.logo:hover:before {
+  opacity: 1;
+}
+
+.logo:hover.logo:after {
+  opacity: 1;
+}
+
+.logo:after {
+  content: "";
+  background: linear-gradient(90deg,
+      #dd00f3,
+      #dd00f3,
+      #2b1de8,
+      #1ddde8,
+      #1de840,
+      #e3e81d,
+      #e8b71d,
+      #e81d1d,
+      #ff2400,
+
+      #dd00f3,
+      #dd00f3,
+      #2b1de8,
+      #1ddde8,
+      #1de840,
+      #e3e81d,
+      #e8b71d,
+      #e81d1d,
+      #ff2400);
+  position: absolute;
+  top: calc(50% - 2px);
+  left: -2px;
+  background-size: 200%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(50% + 4px);
+  animation: glowing-reverse 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* HAMBURGER MENU */
@@ -180,7 +317,7 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
-  clip-path: rect();
+  border-radius: 50%;
 }
 
 .section__text {
@@ -190,7 +327,7 @@ section {
 
 .section__text p {
   font-weight: 600; 
-  color: #000000;
+  color: white;
 }
 
 .section__text__p1 {
@@ -199,18 +336,30 @@ section {
 
 .section__text__p2 {
   text-align: left;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   margin-bottom: .8rem;
 }
 
 .section__text__p3 {
   text-align: left;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  margin-bottom: .8rem;
+}
+
+.section__text__p4 {
+  text-align: left;
+  font-size: 1.5rem;
+  margin-bottom: .8rem;
+}
+
+.section__text__p5 {
+  text-align: left;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
 .title {
-  color: #ffc0cb;
+  color: #ffffff;
   font-size: 3rem;
   text-align: left;
 }
